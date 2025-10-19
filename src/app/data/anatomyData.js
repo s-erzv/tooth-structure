@@ -3,7 +3,7 @@ export const anatomyData = [
     id: 1,
     name: "Gigi Geraham",
     title: "Molar - Pengunyah Utama",
-    meshName: "Molar",
+    modelPath: "/models/test1/scene.gltf",  
     explanation:
       "Gigi molar terletak paling belakang dalam rongga mulut. Permukaan gigi ini lebar, digunakan untuk menghaluskan makanan. Molar pertama (M1) rahang atas adalah gigi terbesar di rahang atas dan sering memiliki Cusp Carabelli. Molar tiga (M3) atau gigi bungsu sering mengalami anomali bentuk, ukuran, dan posisi.",
     structure:
@@ -29,7 +29,7 @@ export const anatomyData = [
     id: 2,
     name: "Geraham Kecil",
     title: "Premolar",
-    meshName: "Premolar",
+    modelPath: "/models/test2/scene.gltf",  
     explanation:
       "Gigi premolar, atau geraham kecil, terletak di antara gigi taring dan gigi geraham. Premolar 1 atas memiliki dua cusp (bukal dan palatal) dan seringkali memiliki dua akar. Premolar 2 atas memiliki cusp yang hampir sama besar dan umumnya satu akar. Premolar 1 bawah memiliki cusp bukal yang lebih nyata, panjang, dan tajam.",
     structure:
@@ -47,7 +47,7 @@ export const anatomyData = [
     id: 3,
     name: "Gigi Taring",
     title: "Caninus",
-    meshName: "Canine",
+    modelPath: "/models/test1/scene.gltf",  
     explanation:
       'Gigi kaninus adalah gigi ke-3 dari garis tengah, sering disebut sebagai "corner stone" karena terletak di sudut mulut. Gigi ini memiliki mahkota (korona) terpanjang dan akar terbesar serta terpanjang di antara semua gigi, membuatnya sangat kokoh.',
     structure: "Satu-satunya gigi yang memiliki satu tonjolan (cusp) yang besar dan runcing. Termasuk dalam kelompok gigi anterior.",
@@ -64,7 +64,7 @@ export const anatomyData = [
     id: 4,
     name: "Gigi Seri",
     title: "Insisivus",
-    meshName: "Incisor",
+    modelPath: "/models/test2/scene.gltf", 
     explanation:
       "Gigi insisivus adalah gigi paling depan di rongga mulut. Gigi seri sentral rahang atas adalah yang terbesar, sementara gigi seri sentral rahang bawah bisa jadi yang terkecil. Saat baru tumbuh (erupsi), gigi ini memiliki tonjolan kecil bernama mamelon yang akan aus seiring waktu.",
     structure: "Berbentuk pipih seperti pahat dengan tepi insisal yang tajam. Termasuk dalam kelompok gigi anterior.",
@@ -81,7 +81,7 @@ export const anatomyData = [
     id: 5,
     name: "Gusi",
     title: "Gingiva",
-    meshName: "Gingiva",
+    modelPath: "/models/test1/scene.gltf",  
     explanation:
       "Gingiva atau gusi adalah jaringan periodontal lunak berwarna merah muda yang mengelilingi gigi dan tidak terlihat pada hasil rontgen (radiografi).",
     structure: "Jaringan lunak yang melindungi akar gigi dan tulang penyangga.",
@@ -110,7 +110,7 @@ export const anatomyData = [
     id: 6,
     name: "Bibir",
     title: "Labia",
-    meshName: "Lips",  
+    modelPath: "/models/test2/scene.gltf",  
     explanation: "Bibir adalah struktur lunak yang menjadi bagian terluar dari rongga mulut.",
     structure: "Terdiri dari jaringan otot dan kulit.",
     functionList: ["Menutup mulut.", "Membantu dalam proses berbicara.", "Menunjukkan ekspresi wajah.", "Berperan sebagai pintu masuk makanan."],
@@ -126,7 +126,7 @@ export const anatomyData = [
     id: 7,
     name: "Struktur Gigi",
     title: "Anatomi Umum",
-    meshName: "FullTooth",  
+    modelPath: "/models/test1/scene.gltf", 
     explanation:
       "Secara umum, gigi memiliki dua bagian utama: mahkota (yang terlihat di mulut) dan akar (yang tertanam di tulang rahang). Batas antara keduanya disebut Cemento-Enamel Junction (CEJ). Jaringan keras gigi terdiri dari Email, Dentin, dan Sementum, sedangkan jaringan lunaknya adalah Pulpa.",
     structure:

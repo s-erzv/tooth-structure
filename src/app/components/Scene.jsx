@@ -1,65 +1,86 @@
 "use client";
 
-import React, { Suspense, useRef, useMemo } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, useGLTF, Html, FlyControls, Center } from "@react-three/drei";
-import * as THREE from "three";
+import React, { Suspense, useMemo } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, useGLTF, Html, Center, Bounds } from "@react-three/drei";
+import { BoxSelect } from "lucide-react";
 
-function Model({ selectedMeshName }) {
-  const { scene } = useGLTF("/models/test1/scene.gltf");
-
-  const defaultMaterial = new THREE.MeshStandardMaterial({
-    color: "#e0e0e0",
-    metalness: 0.5,
-    roughness: 0.6,
-  });
-
-  const selectedMaterial = new THREE.MeshStandardMaterial({
-    color: "#00ff88", 
-    metalness: 0.6,
-    roughness: 0.4,
-    emissive: "#00ff00", 
-    emissiveIntensity: 0.5,
-  });
-
+function Model({ path }) {
+  const { scene } = useGLTF(path);
   const modelScene = useMemo(() => scene.clone(), [scene]);
-
-  modelScene.traverse((child) => {
-    if (child.isMesh) {
-      child.material =
-        child.name === selectedMeshName ? selectedMaterial : defaultMaterial;
-    }
-  });
-
-  return <primitive object={modelScene} scale={1.2} />;  
+  return <primitive object={modelScene} />;
 }
 
+function Placeholder({ theme }) {
+  const isDarkMode = theme === 'dark';
+  return (
+    <Html center>
+      <div className={`
+        flex flex-col items-center justify-center
+        w-64 h-48 p-6 rounded-2xl
+        transition-colors duration-300
+        ${isDarkMode 
+          ? 'bg-slate-800/50 backdrop-blur-md text-slate-400 border border-slate-700' 
+          : 'bg-white/50 backdrop-blur-md text-slate-500 border border-slate-200'}
+      `}>
+        <BoxSelect size={48} className={`mb-4 ${isDarkMode ? 'text-teal-400' : 'text-blue-500'}`} />
+        <h2 className={`font-bold text-lg text-center ${isDarkMode ? 'text-slate-200' : 'text-slate-700'}`}>
+          Studio Anatomi
+        </h2>
+        <p className="text-sm text-center mt-1">
+          Pilih bagian di panel samping untuk memuat model 3D.
+        </p>
+      </div>
+    </Html>
+  );
+}
 
-export default function Scene({ selectedMeshName }) {
+export default function Scene({ modelPath, theme }) {
+  const isDarkMode = theme === 'dark';
+
   return (
     <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
-      <ambientLight intensity={0.7} />
-      <directionalLight position={[10, 10, 5]} intensity={1.5} />
-      <directionalLight position={[-10, -10, -5]} intensity={1} />
+      {isDarkMode ? (
+        <>
+          <ambientLight intensity={1.0} />
+          <directionalLight position={[10, 10, 5]} intensity={2.0} />
+          <directionalLight position={[-10, -5, -5]} intensity={1.0} />
+        </>
+      ) : (
+        <>
+          <ambientLight intensity={0.8} />
+          <directionalLight position={[10, 10, 5]} intensity={1.5} />
+          <directionalLight position={[-10, -5, -5]} intensity={0.5} />
+        </>
+      )}
       
-      <Suspense fallback={<Html center><h2>Memuat model...</h2></Html>}>
-       <Center>
-          <Model selectedMeshName={selectedMeshName} />
-        </Center>
+      <Suspense fallback={
+        <Html center>
+          <h2 className={isDarkMode ? "text-slate-200" : "text-slate-800"}>
+            Memuat model 3D...
+          </h2>
+        </Html>
+      }>
+        {modelPath ? (
+          // <Bounds fit clip observe margin={1.2}>
+            <Center>
+              <Model key={modelPath} path={modelPath} />
+            </Center>
+          //</Bounds>
+        ) : (
+          <Placeholder theme={theme} />
+        )}
       </Suspense>
 
       <OrbitControls 
+        makeDefault
         enablePan={true} 
         enableZoom={true} 
-        minDistance={1} 
-        maxDistance={1}
+        minDistance={0} 
+        maxDistance={2}
+        autoRotate={!modelPath}
+        autoRotateSpeed={0.5}
       />
-
-      {/* <FlyControls 
-        dragToLook={true}  
-        movementSpeed={0.5}  
-        rollSpeed={0.5}   
-      /> */}
     </Canvas>
   );
 }
