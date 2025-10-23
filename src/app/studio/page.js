@@ -9,7 +9,6 @@ import {
   Sun,
   Moon,
 } from "lucide-react";
-import Scene from "../components/Scene.jsx";
 import { anatomyData } from "../data/anatomyData.js";
 
 const defaultModelPath = "/models/test1/scene.gltf";
@@ -61,7 +60,6 @@ export default function StudioPage() {
       el.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
-
 
   const selectedPart = anatomyData.find((p) => p.id === selectedPartId) || null;
 
@@ -124,7 +122,7 @@ export default function StudioPage() {
 
   return (
     <main className={`w-full h-screen flex flex-col font-sans overflow-hidden transition-colors duration-300 ${mainClass}`}>
-      <header className={`${headerClass} transition-colors duration-300`}>
+      <header className={`${headerClass} transition-colors duration-300`}> 
         <div className={`px-6 py-4 flex items-center justify-between border-b transition-colors duration-300 ${theme === 'light' ? 'border-blue-100' : 'border-slate-700'}`}>
           <div>
             <Link href="/" className={`flex items-center text-sm mb-2 transition-colors font-medium ${linkClass}`}>
@@ -197,8 +195,23 @@ export default function StudioPage() {
       </header>
 
       <div className="flex-1 flex flex-col md:flex-row min-h-0 overflow-hidden gap-0">
+      
         <section className={`flex-1 min-h-[40vh] md:min-h-0 transition-colors duration-300 ${sceneBgClass}`}>
-          <Scene modelPath={selectedPart ? selectedPart.modelPath : null} theme={theme} />
+          {selectedPart ? (
+            <iframe
+              key={selectedPart.id}  
+              src={selectedPart.embedUrl}  
+              allow="camera; microphone; gyroscope; accelerometer; magnetometer; xr-spatial-tracking; fullscreen"
+              allowFullScreen
+              className="w-full h-full border-0"  
+            />
+          ) : (
+            <div className={`w-full h-full flex items-center justify-center p-4 ${subheaderTextClass}`}>
+              <p className="text-center">
+                Pilih salah satu bagian untuk menampilkan model 3D dan detail.
+              </p>
+            </div>
+          )}
         </section>
 
         <aside className={`w-full md:w-1/3 lg:w-1/3 p-4 md:p-6 overflow-hidden flex flex-col transition-colors duration-300 ${detailBgClass}`}>
