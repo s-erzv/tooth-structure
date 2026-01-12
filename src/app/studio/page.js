@@ -8,281 +8,241 @@ import {
   RotateCcw,
   Sun,
   Moon,
+  BookOpen,
+  Activity,
+  Stethoscope,
+  Info,
+  Layers,
+  ChevronUp,
+  ChevronDown
 } from "lucide-react";
 import { anatomyData } from "../data/anatomyData.js";
 
-const defaultModelPath = "/models/test1/scene.gltf";
-
 export default function StudioPage() {
-  const [selectedPartId, setSelectedPartId] = useState(null);
+  const [selectedId, setSelectedId] = useState(null);
   const [tab, setTab] = useState("penjelasan");
   const [theme, setTheme] = useState("light");
+  
+  const [sheetHeight, setSheetHeight] = useState("min");
 
-  const [showLeftArrow, setShowLeftArrow] = useState(false);
-  const [showRightArrow, setShowRightArrow] = useState(false);
-  const tabsContainerRef = useRef(null);
+  const tabsRef = useRef(null);
 
-  const checkScroll = () => {
-    const el = tabsContainerRef.current;
-    if (el) {
-      const isScrollable = el.scrollWidth > el.clientWidth;
-      
-      const atStart = el.scrollLeft <= 10;
-      
-      const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 10;
+  const selectedPart = anatomyData.find((p) => p.id === selectedId) || null;
 
-      setShowLeftArrow(isScrollable && !atStart);
-      setShowRightArrow(isScrollable && !atEnd);
-    }
-  };
-
-  useEffect(() => {
-    const el = tabsContainerRef.current;
-    if (el) {
-      const timer = setTimeout(checkScroll, 100);
-
-      el.addEventListener("scroll", checkScroll, { passive: true });
-      window.addEventListener("resize", checkScroll);
-
-      return () => {
-        clearTimeout(timer);
-        el.removeEventListener("scroll", checkScroll);
-        window.removeEventListener("resize", checkScroll);
-      };
-    }
-  }, [anatomyData]); 
-
-  const scrollTabs = (direction) => {
-    const el = tabsContainerRef.current;
-    if (el) {
-      const scrollAmount =
-        direction === "left" ? -el.clientWidth * 0.8 : el.clientWidth * 0.8;
-      el.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
-  };
-
-  const selectedPart = anatomyData.find((p) => p.id === selectedPartId) || null;
-
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
-
-  const clearSelection = () => {
-    setSelectedPartId(null);
+  const handleSelect = (id) => {
+    setSelectedId(id);
     setTab("penjelasan");
+    setSheetHeight("half");  
   };
 
-  const mainClass = theme === 'light' 
-    ? "bg-gradient-to-br from-slate-50 to-blue-50 text-slate-700"
-    : "bg-gradient-to-br from-slate-900 to-blue-900 text-slate-300";
+  const isDark = theme === "dark";
+  const bgMain = isDark ? "bg-slate-950" : "bg-slate-50";
+  const bgCard = isDark ? "bg-slate-900 border-slate-800" : "bg-white border-slate-200";
+  const txtMain = isDark ? "text-slate-200" : "text-slate-800";
 
-  const headerClass = theme === 'light'
-    ? "bg-white border-b border-blue-100"
-    : "bg-slate-800/80 backdrop-blur-sm border-b border-slate-700";
-
-  const sceneBgClass = theme === 'light'
-    ? "bg-gradient-to-br from-slate-100 to-slate-50"
-    : "bg-slate-900";
-
-  const detailBgClass = theme === 'light'
-    ? "bg-white border-l border-blue-100 shadow-sm"
-    : "bg-slate-800/80 backdrop-blur-sm border-l border-slate-700";
-
-  const headerTextClass = theme === 'light' ? "text-blue-900" : "text-teal-300";
-  const subheaderTextClass = theme === 'light' ? "text-slate-500" : "text-slate-400";
-  const linkClass = theme === 'light' ? "text-blue-600 hover:text-blue-700" : "text-sky-400 hover:underline";
-
-  const tabButtonClass = (partId) => {
-    if (selectedPartId === partId) {
-      return theme === 'light'
-        ? "border-b-2 border-blue-600 text-blue-600 font-semibold"
-        : "border-b-2 border-teal-400 text-teal-400 font-semibold";
-    }
-    return theme === 'light'
-      ? "border-b-2 border-transparent text-slate-600 hover:text-slate-800 hover:border-blue-300"
-      : "border-b-2 border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-600";
+  const getSheetHeightClass = () => {
+    if (sheetHeight === "min") return "h-[120px]";
+    if (sheetHeight === "half") return "h-[45vh]";
+    return "h-[85vh]";
   };
-
-  const subtabButtonClass = (t) => {
-    if (tab === t) {
-      return theme === 'light'
-        ? "bg-blue-600 text-white shadow-sm"
-        : "bg-teal-500 text-slate-900";
-    }
-    return theme === 'light'
-      ? "bg-blue-50 text-slate-700 hover:bg-blue-100"
-      : "bg-slate-700 text-slate-300 hover:bg-slate-600";
-  };
-
-  const resetBtnClass = theme === 'light' 
-    ? "bg-blue-100 text-blue-700 hover:bg-blue-200"
-    : "bg-slate-700 text-slate-300 hover:bg-slate-600";
-
-  const proseClass = theme === 'light' ? "prose-blue text-slate-700" : "prose-invert";
 
   return (
-    <main className={`w-full h-screen flex flex-col font-sans overflow-hidden transition-colors duration-300 ${mainClass}`}>
-      <header className={`${headerClass} transition-colors duration-300`}> 
-        <div className={`px-6 py-4 flex items-center justify-between border-b transition-colors duration-300 ${theme === 'light' ? 'border-blue-100' : 'border-slate-700'}`}>
-          <div>
-            <Link href="/" className={`flex items-center text-sm mb-2 transition-colors font-medium ${linkClass}`}>
-              <ChevronLeft size={16} className="mr-1" />
-              Kembali
+    <main className={`fixed inset-0 flex flex-col overflow-hidden ${bgMain} ${txtMain} selection:bg-blue-100`}>
+      
+      <header className={`z-50 border-b ${isDark ? 'bg-slate-900/80 border-slate-800' : 'bg-white/80 border-slate-200'} backdrop-blur-md`}>
+        <div className="px-4 py-3 flex items-center justify-between">
+          <div className="flex flex-col">
+            <Link href="/" className="flex items-center text-[11px] font-medium text-blue-500 mb-0.5">
+              <ChevronLeft size={14} /> Kembali
             </Link>
-            <h1 onClick={clearSelection} className={`text-3xl font-extrabold cursor-pointer ${headerTextClass}`}>
-              Studio Anatomi
-            </h1>
+            <h1 className="text-lg font-bold tracking-tight">Studio Anatomi</h1>
           </div>
-          <button
-            onClick={toggleTheme}
-            className={`p-2 rounded-full transition-all duration-300 ${theme === 'light' ? 'bg-blue-100 hover:bg-blue-200' : 'bg-slate-700 hover:bg-slate-600'}`}
+          <button 
+            onClick={() => setTheme(isDark ? "light" : "dark")}
+            className={`p-2 rounded-xl transition-colors ${isDark ? 'bg-slate-800 text-yellow-400' : 'bg-slate-100 text-slate-600'}`}
           >
-            {theme === 'light' ? <Moon size={20} className="text-blue-800" /> : <Sun size={20} className="text-yellow-400" />}
+            {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
         </div>
 
-        <div className="relative">
-          
-          {showLeftArrow && (
-            <button
-              onClick={() => scrollTabs("left")}
-              className={`absolute left-0 top-0 bottom-0 z-10 flex items-center px-1 md:px-2 transition-opacity duration-300 ${
-                theme === "light"
-                  ? "bg-gradient-to-r from-white via-white/90 to-transparent text-blue-700"
-                  : "bg-gradient-to-r from-slate-800/90 via-slate-800/80 to-transparent backdrop-blur-sm text-sky-300"
-              }`}
-            >
-              <ChevronLeft size={24} />
-            </button>
-          )}
-
-          <div
-            ref={tabsContainerRef}
-            className={`px-6 py-4 overflow-x-auto transition-colors duration-300 scroll-smooth ${theme === 'light' ? 'border-b border-blue-100' : 'border-b border-slate-700'}
-                      scrollbar-hide`}  
-          >
-            <div className="flex gap-2">
-              {anatomyData.map((part) => (
-                <button
-                  key={part.id}
-                  onClick={() => {
-                    setSelectedPartId(part.id);
-                    setTab("penjelasan");
-                  }}
-                  className={`px-4 py-2 text-sm md:text-base transition-all whitespace-nowrap ${tabButtonClass(part.id)}`}
-                >
-                  {part.name}
-                </button>
-              ))}
-            </div>
+        <div className="border-t border-black/[0.03]">
+          <div ref={tabsRef} className="flex gap-2 px-4 py-3 overflow-x-auto scrollbar-hide">
+            {anatomyData.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleSelect(item.id)}
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
+                  selectedId === item.id 
+                    ? (isDark ? 'bg-teal-500 text-slate-950' : 'bg-blue-600 text-white shadow-md')
+                    : (isDark ? 'bg-slate-800 text-slate-400' : 'bg-white border border-slate-200 text-slate-600')
+                }`}
+              >
+                {item.name}
+              </button>
+            ))}
           </div>
-          
-          {showRightArrow && (
-            <button
-              onClick={() => scrollTabs("right")}
-              className={`absolute right-0 top-0 bottom-0 z-10 flex items-center px-1 md:px-2 transition-opacity duration-300 ${
-                theme === "light"
-                  ? "bg-gradient-to-l from-white via-white/90 to-transparent text-blue-700"
-                  : "bg-gradient-to-l from-slate-800/90 via-slate-800/80 to-transparent backdrop-blur-sm text-sky-300"
-              }`}
-            >
-              <ChevronRight size={24} />
-            </button>
-          )}
-
         </div>
-
       </header>
 
-      <div className="flex-1 flex flex-col md:flex-row min-h-0 overflow-hidden gap-0">
-      
-        <section className={`flex-1 min-h-[40vh] md:min-h-0 transition-colors duration-300 ${sceneBgClass}`}>
+      <div className="relative flex-1 flex flex-col md:flex-row overflow-hidden">
+        
+        <div className="flex-1 bg-slate-200 dark:bg-black/40">
           {selectedPart ? (
-            <iframe
-              key={selectedPart.id}  
-              src={selectedPart.embedUrl}  
-              allow="camera; microphone; gyroscope; accelerometer; magnetometer; xr-spatial-tracking; fullscreen"
-              allowFullScreen
-              className="w-full h-full border-0"  
-            />
+            <iframe src={selectedPart.embedUrl} className="w-full h-full border-0" allow="autoplay; fullscreen" />
           ) : (
-            <div className={`w-full h-full flex items-center justify-center p-4 ${subheaderTextClass}`}>
-              <p className="text-center">
-                Pilih salah satu bagian untuk menampilkan model 3D dan detail.
-              </p>
+            <div className="h-full flex flex-col items-center justify-center p-12 text-center opacity-30">
+              <Layers size={48} strokeWidth={1.5} className="mb-4" />
+              <p className="text-sm font-medium">Pilih bagian anatomi untuk melihat model 3D</p>
             </div>
           )}
-        </section>
+        </div>
 
-        <aside className={`w-full md:w-1/3 lg:w-1/3 p-4 md:p-6 overflow-hidden flex flex-col transition-colors duration-300 ${detailBgClass}`}>
-          <div className="flex flex-col flex-grow h-full">
-            <header className={`mb-4 pb-4 shrink-0 transition-colors duration-300 ${theme === 'light' ? 'border-b border-blue-100' : 'border-b border-slate-700'}`}>
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <h2 className={`text-xl md:text-2xl font-bold ${headerTextClass}`}>
-                    {selectedPart ? selectedPart.name : "Detail Informasi"}
-                  </h2>
-                  <p className={`text-sm mt-2 ${subheaderTextClass}`}>
-                    {selectedPart ? selectedPart.title : "Pilih salah satu bagian untuk melihat info lengkapnya."}
-                  </p>
-                </div>
-                {selectedPart && (
-                  <button 
-                    onClick={clearSelection} 
-                    className={`flex items-center text-xs px-2 py-1 rounded transition-colors flex-shrink-0 ${resetBtnClass}`}
-                  >
-                    <RotateCcw size={12} className="mr-1.5"/>
-                    Reset
-                  </button>
-                )}
+        {selectedPart && (
+          <aside 
+            className={`
+              fixed md:relative bottom-0 left-0 right-0 z-[60]
+              ${bgCard} border-t md:border-t-0 md:border-l
+              transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1)
+              flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.1)]
+              ${getSheetHeightClass()}
+              md:h-full md:w-[400px] lg:w-[450px]
+              rounded-t-[32px] md:rounded-t-none
+            `}
+          >
+            <div 
+              className="md:hidden flex flex-col items-center pt-3 pb-2 cursor-pointer touch-none"
+              style={{ touchAction: 'none' }}  
+              onClick={() => setSheetHeight(sheetHeight === "full" ? "half" : sheetHeight === "half" ? "full" : "half")}
+            >
+              <div className={`w-12 h-1.5 rounded-full ${isDark ? 'bg-slate-700' : 'bg-slate-300'} mb-2`} />
+              <div className="text-[10px] font-bold opacity-30 tracking-tighter">
+                {sheetHeight === "full" ? "Tutup Sedikit" : "Lihat Detail"}
               </div>
-            </header>
+            </div>
 
-            {selectedPart && (
-              <nav className={`flex gap-2 mb-4 flex-wrap shrink-0 pb-4 overflow-x-auto transition-colors duration-300 ${theme === 'light' ? 'border-b border-blue-100' : 'border-b border-slate-700'}`}>
-                {["penjelasan", "struktur", "fungsi", "penyakit", "perawatan"].map((t) => (
-                  <button 
-                    key={t} 
-                    onClick={() => setTab(t)} 
-                    className={`px-3 py-1.5 rounded-md text-xs md:text-sm font-semibold transition-all whitespace-nowrap ${subtabButtonClass(t)}`}
+            <div className="px-6 py-2 shrink-0">
+              <div className="flex justify-between items-start">
+                <div>
+                  <h2 className="text-xl font-bold">{selectedPart.name}</h2>
+                  <p className="text-[10px] font-semibold text-blue-500">{selectedPart.title}</p>
+                </div>
+                <button 
+                  onClick={() => setSelectedId(null)}
+                  className={`p-2 rounded-xl ${isDark ? 'bg-slate-800 text-slate-400' : 'bg-slate-100 text-slate-500'}`}
+                >
+                  <RotateCcw size={16} />
+                </button>
+              </div>
+
+              <nav className="flex gap-2 mt-4 overflow-x-auto pb-2 scrollbar-hide">
+                {[
+                  { id: "penjelasan", label: "Info", icon: <Info size={14} /> },
+                  ...(selectedPart.subSections ? [{ id: "materi", label: "Materi", icon: <BookOpen size={14} /> }] : []),
+                  { id: "struktur", label: "Struktur", icon: <Layers size={14} /> },
+                  { id: "fungsi", label: "Fungsi", icon: <Activity size={14} /> },
+                  { id: "penyakit", label: "Penyakit", icon: <Stethoscope size={14} /> },
+                  { id: "perawatan", label: "Rawat", icon: <RotateCcw size={14} /> },
+                ].map((t) => (
+                  <button
+                    key={t.id}
+                    onClick={() => { setTab(t.id); setSheetHeight("full"); }}
+                    className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-[11px] font-bold transition-all whitespace-nowrap ${
+                      tab === t.id 
+                        ? (isDark ? 'bg-teal-500 text-slate-900' : 'bg-blue-600 text-white shadow-sm')
+                        : (isDark ? 'bg-slate-800 text-slate-400' : 'bg-slate-100 text-slate-600')
+                    }`}
                   >
-                    {t.charAt(0).toUpperCase() + t.slice(1)}
+                    {t.icon} {t.label}
                   </button>
                 ))}
               </nav>
-            )}
+            </div>
 
-            <div className="flex-grow overflow-y-auto min-h-0 pr-2">
-              <div className="h-full">
-                {!selectedPart ? (
-                  <div className={`flex items-center justify-center h-full ${subheaderTextClass}`}>
-                    <p className="text-center">Pilih sebuah bagian untuk menampilkan model 3D dan detail.</p>
-                  </div>
-                ) : (
-                  <div className={`prose prose-sm max-w-none ${proseClass}`}>
-                    {tab === "penjelasan" && <p>{selectedPart.explanation}</p>}
-                    {tab === "struktur" && <p>{selectedPart.structure}</p>}
-                    {tab === "fungsi" && (
-                      <ul>
-                        {selectedPart.functionList.map((f, i) => (<li key={i}>{f}</li>))}
-                      </ul>
-                    )}
-                    {tab === "penyakit" && (
-                      <ul>
-                        {selectedPart.commonDiseases.map((d, i) => (<li key={i}><strong>{d.name}:</strong> {d.desc}</li>))}
-                      </ul>
-                    )}
-                    {tab === "perawatan" && (
-                      <ol>
-                        {selectedPart.treatments.map((tmt, i) => (<li key={i}>{tmt}</li>))}
-                      </ol>
-                    )}
+            <div className="flex-1 overflow-y-auto px-6 py-4 pb-12">
+              <div className="text-sm leading-relaxed space-y-4">
+                
+                {tab === "penjelasan" && (
+                  <div className="animate-in fade-in duration-500">
+                    <p>{selectedPart.explanation}</p>
                   </div>
                 )}
+
+                {tab === "materi" && selectedPart.subSections && (
+                  <div className="space-y-6 animate-in fade-in">
+                    {selectedPart.subSections.map((sec, i) => (
+                      <div key={i} className="space-y-4">
+                        <div className="flex items-center gap-2">
+                          <div className="h-4 w-1 bg-teal-500 rounded-full" />
+                          <h3 className="font-bold text-xs tracking-wider">{sec.title}</h3>
+                        </div>
+                        {sec.content && <p className="text-xs opacity-70 italic">{sec.content}</p>}
+                        <div className="grid gap-3">
+                          {sec.parts.map((p, j) => (
+                            <div key={j} className={`p-4 rounded-2xl border ${isDark ? 'bg-slate-800/40 border-slate-800' : 'bg-slate-50 border-slate-200/60'}`}>
+                              <h4 className="font-bold text-xs mb-1 text-blue-500">{p.name}</h4>
+                              {p.location && <p className="text-[10px] opacity-50 mb-2 font-bold tracking-tighter">Lokasi: {p.location}</p>}
+                              {p.structure && <p className="text-[11px] mb-2 leading-snug">{p.structure}</p>}
+                              {p.function && <p className="text-[11px] opacity-90">{p.function}</p>}
+                              {p.details && (
+                                <ul className="mt-3 space-y-2">
+                                  {p.details.map((d, k) => (
+                                    <li key={k} className="flex gap-2 text-[11px] opacity-80">
+                                      <span className="text-teal-500">•</span> {d}
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {tab === "struktur" && (
+                  <div className={`p-5 rounded-2xl border ${isDark ? 'bg-slate-800/50 border-slate-700' : 'bg-blue-50/50 border-blue-100'} animate-in zoom-in-95`}>
+                    <p className="text-xs md:text-sm leading-relaxed">{selectedPart.structure}</p>
+                  </div>
+                )}
+
+                {tab === "fungsi" && (
+                  <div className="space-y-3">
+                    {selectedPart.functionList.map((f, i) => (
+                      <div key={i} className={`flex gap-4 p-4 rounded-2xl ${isDark ? 'bg-white/5' : 'bg-slate-100/50 border border-slate-200/50'}`}>
+                        <span className="text-xl font-bold text-blue-500 italic">{i+1}</span>
+                        <p className="text-xs font-medium self-center">{f}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {tab === "penyakit" && (
+                  <div className="space-y-3">
+                    {selectedPart.commonDiseases.map((d, i) => (
+                      <div key={i} className={`p-4 rounded-2xl border ${isDark ? 'bg-red-500/5 border-red-500/20' : 'bg-red-50 border-red-100'}`}>
+                        <h4 className="font-bold text-red-500 text-xs mb-1">{d.name}</h4>
+                        <p className="text-[11px] leading-relaxed opacity-80">{d.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {tab === "perawatan" && (
+                  <div className="grid gap-2">
+                    {selectedPart.treatments.map((t, i) => (
+                      <div key={i} className={`flex gap-3 p-3 rounded-xl ${isDark ? 'hover:bg-white/5' : 'hover:bg-slate-100'} transition-colors`}>
+                        <div className="w-1.5 h-1.5 rounded-full bg-teal-500 mt-1.5 shrink-0" />
+                        <p className="text-[11px] font-medium">{t}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
               </div>
             </div>
-          </div>
-        </aside>
+          </aside>
+        )}
       </div>
     </main>
   );

@@ -14,7 +14,7 @@ export const anatomyData = [
     commonDiseases: [
       {
         name: "Erupsi Parsial Molar Tiga",
-        desc: "Dapat menyebabkan kelainan periodontal, karies pada gigi di sebelahnya, dan resorpsi akar pada gigi molar dua.",
+        desc: "Dapat menyebabkan kelainan periodontal, karies pada gigi di sebelahnya, and resorpsi akar pada gigi molar dua.",
       },
       {
         name: "Karies Oklusal",
@@ -306,4 +306,169 @@ export const anatomyData = [
       "Perawatan karies seperti penambalan untuk mencegah kerusakan lebih lanjut pada struktur gigi."
     ],
   },
+  {
+    id: 8,
+    name: "Sistem Saraf Pusat",
+    title: "SSP (Central Nervous System)",
+    embedUrl: "https://viewer.assemblrworld.com/Embed/-6ljXqJzjEnjzsUjhQ4c",
+    explanation: "Sistem Saraf Pusat (SSP) adalah pusat kendali utama tubuh. Ia menerima informasi dari indra, mengolahnya, dan mengirimkan perintah ke seluruh tubuh. SSP dilindungi oleh tulang keras (tengkorak dan tulang belakang) serta lapisan selaput meninges.",
+    structure: "Terdiri atas Otak (Brain) sebagai pemroses data utama dan Sumsum Tulang Belakang (Spinal Cord) sebagai jalur transmisi sinyal.",
+    subSections: [
+      {
+        title: "Komponen Utama Otak",
+        parts: [
+          {
+            name: "Otak Besar (Cerebrum)",
+            structure: "Terbagi menjadi lobus-lobus spesifik (Frontal, Parietal, Temporal, Oksipital).",
+            function: "Mengatur fungsi kognitif tinggi seperti logika, bahasa, memori, dan gerakan sadar."
+          },
+          {
+            name: "Otak Kecil (Cerebellum)",
+            structure: "Terletak di bawah otak besar bagian belakang.",
+            function: "Mengoordinasikan gerakan otot, keseimbangan, dan postur tubuh."
+          },
+          {
+            name: "Batang Otak (Brainstem)",
+            structure: "Terdiri dari otak tengah, pons, dan medulla oblongata.",
+            function: "Mengontrol fungsi otonom vital seperti pernapasan dan detak jantung."
+          }
+        ]
+      },
+      {
+        title: "Pelindung Saraf Pusat",
+        parts: [
+          {
+            name: "Meninges",
+            structure: "Tiga lapis selaput (Duramater, Arachnoid, Piamater).",
+            function: "Melindungi jaringan saraf halus dari benturan fisik."
+          },
+          {
+            name: "Cairan Serebrospinal (CSF)",
+            function: "Cairan bantalan yang mengelilingi otak dan sumsum tulang belakang."
+          }
+        ]
+      }
+    ],
+    functionList: [
+      "Mengolah informasi sensorik yang masuk.",
+      "Membuat keputusan dan perintah motorik.",
+      "Pusat memori, kecerdasan, dan emosi.",
+      "Mengatur ritme biologis tubuh."
+    ],
+    commonDiseases: [
+      { name: "Meningitis", desc: "Peradangan pada selaput pelindung otak akibat infeksi." },
+      { name: "Ensefalitis", desc: "Infeksi yang menyebabkan peradangan langsung pada jaringan otak." }
+    ],
+    treatments: [
+      "Gunakan alat pelindung kepala (helm) saat berkendara.",
+      "Lakukan latihan otak (puzzle/membaca) secara rutin.",
+      "Pastikan asupan glukosa stabil untuk energi sel otak."
+    ]
+  },
+  {
+    id: 9,
+    name: "Sistem Saraf Tepi",
+    title: "SST (Peripheral Nervous System)",
+    embedUrl: "https://viewer.assemblrworld.com/Embed/-6ljXqJzjEnjzsUjhQ4c",
+    explanation: "Sistem Saraf Tepi (SST) terdiri dari semua saraf yang bercabang dari otak dan sumsum tulang belakang menuju ujung organ tubuh. Fungsinya adalah sebagai jembatan komunikasi antara dunia luar/organ dalam dengan pusat kendali (SSP).",
+    structure: "Meliputi saraf kranial (dari otak) dan saraf spinal (dari sumsum tulang belakang).",
+    subSections: [
+      {
+        title: "Pembagian Kerja SST",
+        parts: [
+          {
+            name: "Sistem Somatik (Sadar)",
+            function: "Mengirimkan informasi sensorik ke SSP dan membawa perintah gerak ke otot rangka."
+          },
+          {
+            name: "Sistem Otonom (Tidak Sadar)",
+            function: "Mengatur fungsi otomatis organ dalam seperti pencernaan dan detak jantung."
+          }
+        ]
+      },
+      {
+        title: "Cabang Saraf Otonom",
+        parts: [
+          {
+            name: "Saraf Simpatik",
+            function: "Memicu respon 'Fight or Flight' (waspada/darurat) seperti detak jantung cepat."
+          },
+          {
+            name: "Saraf Parasimpatik",
+            function: "Memicu respon 'Rest and Digest' (istirahat/tenang) seperti memperlambat detak jantung."
+          }
+        ]
+      }
+    ],
+    functionList: [
+      "Menghubungkan SSP ke seluruh organ dan anggota gerak.",
+      "Mendeteksi perubahan suhu, tekanan, dan nyeri.",
+      "Mengatur respon refleks bawah sadar.",
+      "Mengatur metabolisme organ dalam secara otomatis."
+    ],
+    commonDiseases: [
+      { name: "Neuropati Perifer", desc: "Kerusakan saraf yang menyebabkan kesemutan atau mati rasa pada tangan/kaki." },
+      { name: "Saraf Terjepit (HNP)", desc: "Tekanan pada saraf spinal yang menimbulkan nyeri hebat." }
+    ],
+    treatments: [
+      "Jaga postur tubuh saat duduk atau mengangkat beban.",
+      "Hindari konsumsi alkohol yang dapat merusak saraf tepi.",
+      "Lakukan peregangan (stretching) secara berkala."
+    ]
+  },
+  {
+    id: 10,
+    name: "Sel Saraf (Neuron)",
+    title: "Unit Fungsional Neuron",
+    embedUrl: "https://viewer.assemblrworld.com/Embed/-6ljXqJzjEnjzsUjhQ4c",
+    explanation: "Neuron adalah sel khusus yang merupakan unit terkecil pembentuk sistem saraf. Neuron unik karena mampu menghantarkan impuls listrik (potensial aksi) dari satu titik ke titik lainnya dengan kecepatan tinggi.",
+    structure: "Setiap neuron terdiri dari badan sel yang memiliki percabangan dendrit dan akson.",
+    subSections: [
+      {
+        title: "Anatomi Mikro Neuron",
+        parts: [
+          {
+            name: "Dendrit",
+            structure: "Percabangan pendek seperti ranting pohon.",
+            function: "Menangkap sinyal kimia dari neuron lain dan mengubahnya jadi arus listrik."
+          },
+          {
+            name: "Akson",
+            structure: "Ekor panjang sel saraf.",
+            function: "Menyalurkan impuls listrik menjauhi badan sel menuju neuron berikutnya."
+          },
+          {
+            name: "Selubung Mielin",
+            structure: "Lapisan lemak yang membungkus akson.",
+            function: "Berperan sebagai isolator yang mempercepat transmisi sinyal listrik."
+          }
+        ]
+      },
+      {
+        title: "Komunikasi Antar Sel",
+        parts: [
+          {
+            name: "Sinapsis",
+            structure: "Celah sempit di antara ujung akson dan dendrit sel lain.",
+            function: "Tempat pelepasan zat kimia (neurotransmitter) untuk komunikasi antar saraf."
+          }
+        ]
+      }
+    ],
+    functionList: [
+      "Menghantarkan rangsangan dari reseptor ke pusat.",
+      "Meneruskan perintah dari pusat ke efektor (otot/kelenjar).",
+      "Melakukan pemrosesan informasi tingkat seluler.",
+      "Menyimpan informasi dalam bentuk koneksi sinaptik."
+    ],
+    commonDiseases: [
+      { name: "Multiple Sclerosis", desc: "Kerusakan pada mielin yang menghambat pengiriman sinyal saraf." },
+      { name: "Penyakit Motor Neuron", desc: "Degenerasi sel saraf yang mengontrol gerakan otot." }
+    ],
+    treatments: [
+      "Konsumsi makanan tinggi Vitamin B12 untuk pembentukan mielin.",
+      "Cukupi kebutuhan elektrolit (Kalium/Natrium) untuk konduksi saraf.",
+      "Pastikan hidrasi tubuh terjaga."
+    ]
+  }
 ];
