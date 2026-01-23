@@ -420,7 +420,7 @@ export const anatomyData = [
     id: 10,
     name: "Sel Saraf (Neuron)",
     title: "Unit Fungsional Neuron",
-    embedUrl: "https://viewer.assemblrworld.com/Embed/-6ljXqJzjEnjzsUjhQ4c",
+    embedUrl: "https://viewer.assemblrworld.com/Embed/-Pp4wYSA28uV4w5LlQwd",
     explanation: "Neuron adalah sel khusus yang merupakan unit terkecil pembentuk sistem saraf. Neuron unik karena mampu menghantarkan impuls listrik (potensial aksi) dari satu titik ke titik lainnya dengan kecepatan tinggi.",
     structure: "Setiap neuron terdiri dari badan sel yang memiliki percabangan dendrit dan akson.",
     subSections: [
@@ -470,5 +470,6 @@ export const anatomyData = [
       "Cukupi kebutuhan elektrolit (Kalium/Natrium) untuk konduksi saraf.",
       "Pastikan hidrasi tubuh terjaga."
     ]
-  }
+  },
+  
 ];
