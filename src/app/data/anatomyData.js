@@ -2,6 +2,7 @@ export const anatomyData = [
   {
     id: 1,
     name: "Gigi Geraham",
+    category: "Mulut/Gigi",
     title: "Molar",
     embedUrl: "https://viewer.assemblrworld.com/Embed/-P6hm5pZ4ayiR7lT6Vfk",
     explanation:
@@ -62,6 +63,7 @@ export const anatomyData = [
   {
     id: 2,
     name: "Geraham Kecil",
+    category: "Mulut/Gigi",
     title: "Premolar",
     embedUrl: "https://viewer.assemblrworld.com/Embed/-UawiyEPkql7geP2h27p",
     explanation:
@@ -100,6 +102,7 @@ export const anatomyData = [
   {
     id: 3,
     name: "Gigi Taring",
+    category: "Mulut/Gigi",
     title: "Caninus",
     embedUrl: "https://viewer.assemblrworld.com/Embed/-SXt8ks43np2myVT5XUF",
     explanation:
@@ -138,6 +141,7 @@ export const anatomyData = [
   {
     id: 4,
     name: "Gigi Seri",
+    category: "Mulut/Gigi",
     title: "Insisivus",
     embedUrl: "https://viewer.assemblrworld.com/Embed/-UQuTjcqWET46rum6tte",
     explanation:
@@ -176,6 +180,7 @@ export const anatomyData = [
   {
     id: 5,
     name: "Gusi",
+    category: "Mulut/Gigi",
     title: "Gingiva",
     embedUrl: "https://viewer.assemblrworld.com/Embed/-bxGpUfefLx3r6vHRoV5",
     explanation:
@@ -222,6 +227,7 @@ export const anatomyData = [
   {
     id: 6,
     name: "Anatomi Mulut",
+    category: "Mulut/Gigi",
     title: "Rongga Mulut",
     embedUrl: "https://viewer.assemblrworld.com/Embed/-JAoa2ZbUol4gmPaK7wA",
     explanation:
@@ -284,6 +290,7 @@ export const anatomyData = [
   {
     id: 7,
     name: "Struktur Gigi",
+    category: "Mulut/Gigi",
     title: "Anatomi Umum",
     embedUrl: "https://viewer.assemblrworld.com/Embed/-uAWfEjiTdYxZk2YKc39",
     explanation:
@@ -309,6 +316,7 @@ export const anatomyData = [
   {
     id: 8,
     name: "Sistem Saraf Pusat",
+    category: "System Saraf",
     title: "SSP (Central Nervous System)",
     embedUrl: "https://viewer.assemblrworld.com/Embed/-6ljXqJzjEnjzsUjhQ4c",
     explanation: "Sistem Saraf Pusat (SSP) adalah pusat kendali utama tubuh. Ia menerima informasi dari indra, mengolahnya, dan mengirimkan perintah ke seluruh tubuh. SSP dilindungi oleh tulang keras (tengkorak dan tulang belakang) serta lapisan selaput meninges.",
@@ -368,6 +376,7 @@ export const anatomyData = [
   {
     id: 9,
     name: "Sistem Saraf Tepi",
+    category: "System Saraf",
     title: "SST (Peripheral Nervous System)",
     embedUrl: "https://viewer.assemblrworld.com/Embed/-6ljXqJzjEnjzsUjhQ4c",
     explanation: "Sistem Saraf Tepi (SST) terdiri dari semua saraf yang bercabang dari otak dan sumsum tulang belakang menuju ujung organ tubuh. Fungsinya adalah sebagai jembatan komunikasi antara dunia luar/organ dalam dengan pusat kendali (SSP).",
@@ -419,6 +428,7 @@ export const anatomyData = [
   {
     id: 10,
     name: "Sel Saraf (Neuron)",
+    category: "System Saraf",
     title: "Unit Fungsional Neuron",
     embedUrl: "https://viewer.assemblrworld.com/Embed/-Pp4wYSA28uV4w5LlQwd",
     explanation: "Neuron adalah sel khusus yang merupakan unit terkecil pembentuk sistem saraf. Neuron unik karena mampu menghantarkan impuls listrik (potensial aksi) dari satu titik ke titik lainnya dengan kecepatan tinggi.",
@@ -471,5 +481,245 @@ export const anatomyData = [
       "Pastikan hidrasi tubuh terjaga."
     ]
   },
+  {
+    id: 11,
+    name: "Usus Halus",
+    category: "Tubuh",
+    title: "Intestinum Tenue",
+    embedUrl: "https://viewer.assemblrworld.com/Embed/-FxFfa3QjiXZdzjxfy7h",
+    explanation: "Usus halus merupakan bagian terpanjang dari sistem pencernaan manusia yang berfungsi sebagai tempat utama pencernaan kimiawi dan penyerapan sari-sari makanan ke dalam aliran darah.",
+    structure: "Terdiri dari tiga bagian utama: Duodenum (usus dua belas jari), Jejunum (usus kosong), dan Ileum (usus penyerapan). Permukaan dalamnya dilapisi vili dan mikrovili untuk memperluas area penyerapan nutrisi.",
+    functionList: [
+      "Melakukan pencernaan lanjutan terhadap karbohidrat, protein, dan lemak.",
+      "Menyerap nutrisi hasil pencernaan ke dalam pembuluh darah.",
+      "Mendorong sisa makanan menuju usus besar melalui gerakan peristaltik."
+    ],
+    commonDiseases: [
+      { name: "Diare Infeksi", desc: "Gangguan penyerapan cairan akibat infeksi bakteri atau virus pada dinding usus." },
+      { name: "Malabsorpsi", desc: "Ketidakmampuan usus halus untuk menyerap nutrisi tertentu secara optimal." },
+      { name: "Enteritis", desc: "Peradangan pada usus halus yang sering disebabkan oleh konsumsi makanan/minuman yang terkontaminasi." }
+    ],
+    treatments: [
+      "Mengonsumsi makanan yang higienis dan matang sempurna.",
+      "Mencukupi asupan serat dan air putih harian.",
+      "Membatasi konsumsi makanan dengan kadar lemak jenuh yang berlebihan."
+    ]
+  },
+  {
+    id: 12,
+    name: "Usus Besar",
+    category: "Tubuh",
+    title: "Intestinum Crassum",
+    embedUrl: "https://viewer.assemblrworld.com/Embed/-u5WxQdFFKC42xpxZT7F",
+    explanation: "Usus besar adalah bagian akhir dari sistem pencernaan yang bertanggung jawab untuk memproses sisa makanan yang tidak dapat dicerna oleh usus halus.",
+    structure: "Meliputi Sekum (kantong pertama), Kolon (asendens, transversum, desendens, dan sigmoid), serta Rektum sebagai tempat penyimpanan sementara feses.",
+    functionList: [
+      "Menyerap air dan mineral dari sisa-sisa makanan.",
+      "Membentuk dan memadatkan feses untuk dibuang.",
+      "Tempat bakteri simbiosis menghasilkan Vitamin K yang dibutuhkan tubuh."
+    ],
+    commonDiseases: [
+      { name: "Konstipasi", desc: "Kondisi feses yang mengeras akibat penyerapan air yang berlebihan." },
+      { name: "Kolitis", desc: "Peradangan pada lapisan dalam kolon yang menyebabkan nyeri perut." },
+      { name: "Kanker Kolon", desc: "Pertumbuhan sel abnormal pada jaringan usus besar." }
+    ],
+    treatments: [
+      "Meningkatkan konsumsi makanan tinggi serat (sayur dan buah).",
+      "Melakukan aktivitas fisik atau olahraga secara rutin.",
+      "Membiasakan diri untuk tidak menunda buang air besar."
+    ]
+  },
+  {
+    id: 13,
+    name: "Hati",
+    category: "Tubuh",
+    title: "Hepar",
+    embedUrl: "https://viewer.assemblrworld.com/Embed/-7sHXbKxfYbUkjwF8PvG",
+    explanation: "Hati adalah organ internal terbesar dalam tubuh manusia yang memiliki peran vital dalam metabolisme, detoksifikasi, dan produksi biokimia yang diperlukan untuk pencernaan.",
+    structure: "Terdiri dari dua lobus utama (kanan dan kiri) yang tersusun atas sel hepatosit. Dilengkapi dengan saluran empedu untuk menyalurkan hasil sekresi ke sistem pencernaan.",
+    functionList: [
+      "Melakukan detoksifikasi racun dari dalam darah.",
+      "Menyimpan cadangan energi dalam bentuk glikogen.",
+      "Menghasilkan cairan empedu untuk membantu pencernaan lemak.",
+      "Sintesis protein plasma darah seperti albumin."
+    ],
+    commonDiseases: [
+      { name: "Hepatitis", desc: "Peradangan hati yang umumnya disebabkan oleh infeksi virus atau paparan zat toksik." },
+      { name: "Sirosis", desc: "Pembentukan jaringan parut pada hati yang merusak struktur dan fungsinya." },
+      { name: "Fatty Liver", desc: "Penumpukan lemak berlebih pada sel-sel hati (perlemakan hati)." }
+    ],
+    treatments: [
+      "Menghindari konsumsi minuman beralkohol secara total.",
+      "Melakukan vaksinasi hepatitis sesuai anjuran medis.",
+      "Menerapkan pola makan gizi seimbang dan menjaga berat badan ideal."
+    ]
+  },
+  {
+    id: 14,
+    name: "Alveolus",
+    category: "Tubuh",
+    title: "Alveoli Pulmonis",
+    embedUrl: "https://viewer.assemblrworld.com/Embed/-XoudnP5sxGTi8JZgomF",
+    explanation: "Alveolus adalah kantung udara mikroskopis di ujung bronkiolus yang merupakan unit fungsional utama sistem pernapasan untuk pertukaran gas.",
+    structure: "Memiliki dinding selapis epitel yang sangat tipis, dikelilingi oleh jaringan kapiler darah, serta mengandung zat surfaktan untuk menjaga kantung tetap terbuka.",
+    functionList: [
+      "Tempat pertukaran oksigen (O2) dari udara ke dalam darah.",
+      "Tempat pembuangan karbon dioksida (CO2) dari darah ke udara pernapasan."
+    ],
+    commonDiseases: [
+      { name: "Pneumonia", desc: "Infeksi yang menyebabkan alveolus terisi cairan atau nanah." },
+      { name: "Emfisema", desc: "Kerusakan dinding alveolus yang mengurangi area pertukaran oksigen." },
+      { name: "Tuberkulosis (TBC)", desc: "Penyakit infeksi paru akibat bakteri Mycobacterium tuberculosis." }
+    ],
+    treatments: [
+      "Menghindari paparan asap rokok dan polusi udara.",
+      "Melakukan latihan pernapasan secara teratur.",
+      "Menggunakan masker di area berisiko tinggi polutan."
+    ]
+  },
+  {
+    id: 15,
+    name: "Jantung",
+    category: "Tubuh",
+    title: "Cor / Heart",
+    embedUrl: "https://viewer.assemblrworld.com/Embed/-dvWwAk5e7EnUF5pWWs9",
+    explanation: "Jantung adalah organ otot berongga yang berfungsi sebagai pompa sentral dalam sistem sirkulasi darah manusia.",
+    structure: "Terbagi menjadi empat ruang: Atrium (serambi) kanan dan kiri, serta Ventrikel (bilik) kanan dan kiri. Dilengkapi dengan katup untuk menjaga arah aliran darah tetap searah.",
+    functionList: [
+      "Memompa darah kaya oksigen ke seluruh jaringan tubuh.",
+      "Memompa darah kaya karbon dioksida menuju paru-paru untuk dibersihkan.",
+      "Menjaga tekanan darah agar nutrisi tersalurkan dengan baik."
+    ],
+    commonDiseases: [
+      { name: "Penyakit Jantung Koroner", desc: "Penyumbatan pembuluh darah yang menyuplai nutrisi ke otot jantung." },
+      { name: "Gagal Jantung", desc: "Kondisi jantung tidak mampu memompa darah secara efektif sesuai kebutuhan tubuh." },
+      { name: "Aritmia", desc: "Gangguan pada irama detak jantung (terlalu cepat, lambat, atau tidak teratur)." }
+    ],
+    treatments: [
+      "Menerapkan diet rendah lemak jenuh dan rendah garam.",
+      "Melakukan olahraga kardio secara rutin (jalan cepat, lari, renang).",
+      "Memantau tekanan darah dan kadar kolesterol secara berkala."
+    ]
+  },
+  {
+    id: 16,
+    name: "Sistem Urinari",
+    category: "Tubuh",
+    title: "Apparatus Urinarius",
+    embedUrl: "https://viewer.assemblrworld.com/Embed/-Llm7p2yn9ZTAnb7e5RZ",
+    explanation: "Sistem urinari adalah sistem pembuangan tubuh yang menyaring limbah metabolisme dari darah dan mengeluarkannya dalam bentuk urin.",
+    structure: "Meliputi sepasang Ginjal (Ren), Ureter (saluran penghubung), Kandung Kemih (Vesica Urinaria), dan Uretra (saluran pembuangan akhir).",
+    functionList: [
+      "Menyaring zat sisa metabolisme dan racun dari darah.",
+      "Mengatur keseimbangan cairan, elektrolit, dan pH tubuh.",
+      "Menghasilkan hormon untuk mengatur tekanan darah."
+    ],
+    commonDiseases: [
+      { name: "Batu Ginjal", desc: "Pembentukan kristal mineral keras di dalam ginjal atau saluran kemih." },
+      { name: "Infeksi Saluran Kemih (ISK)", desc: "Infeksi bakteri pada bagian manapun dari sistem urinari." },
+      { name: "Gagal Ginjal", desc: "Penurunan fungsi ginjal dalam menyaring limbah darah." }
+    ],
+    treatments: [
+      "Minum air putih minimal 2 liter per hari.",
+      "Hindari kebiasaan menahan kencing dalam waktu lama.",
+      "Menjaga kebersihan area genital untuk mencegah infeksi."
+    ]
+  },
+  {
+    id: 17,
+    name: "Lambung",
+    category: "Tubuh",
+    title: "Gaster / Stomach",
+    embedUrl: "https://viewer.assemblrworld.com/Embed/-GvH8X_Zp8f7rD_W5sA9", // Note: Menggunakan placeholder atau url default jika tidak ada di list asli
+    explanation: "Lambung adalah organ otot berbentuk huruf 'J' yang berfungsi mengolah makanan secara mekanik dan kimiawi sebelum masuk ke usus.",
+    structure: "Terdiri dari Kardia, Fundus, Korpus, dan Pilorus. Memiliki lapisan mukosa yang menghasilkan asam lambung (HCl) dan enzim pepsin.",
+    functionList: [
+      "Menghancurkan makanan secara mekanik melalui kontraksi otot.",
+      "Memulai proses pencernaan protein secara kimiawi.",
+      "Membunuh mikroorganisme berbahaya yang terbawa bersama makanan."
+    ],
+    commonDiseases: [
+      { name: "Gastritis", desc: "Peradangan pada lapisan mukosa lambung (sering disebut maag)." },
+      { name: "Tukak Lambung", desc: "Luka terbuka pada lapisan dalam lambung akibat pengikisan asam." },
+      { name: "GERD", desc: "Naiknya asam lambung kembali menuju kerongkongan yang menyebabkan rasa terbakar." }
+    ],
+    treatments: [
+      "Membiasakan pola makan teratur dan tepat waktu.",
+      "Menghindari konsumsi makanan yang terlalu pedas atau asam secara berlebihan.",
+      "Mengelola tingkat stres dengan baik."
+    ]
+  },
+  {
+    id: 18,
+    name: "Pankreas",
+    category: "Tubuh",
+    title: "Pancreas",
+    embedUrl: "https://viewer.assemblrworld.com/Embed/-PdZcRnVsFfyz7xSqwsJ",
+    explanation: "Pankreas adalah organ unik yang memiliki fungsi ganda sebagai kelenjar eksokrin (pencernaan) dan kelenjar endokrin (hormonal).",
+    structure: "Terdiri dari bagian asini yang memproduksi enzim pencernaan dan Pulau-pulau Langerhans yang memproduksi hormon.",
+    functionList: [
+      "Menghasilkan enzim amilase, lipase, dan tripsin untuk pencernaan di usus.",
+      "Memproduksi hormon Insulin dan Glukagon untuk mengatur kadar gula darah."
+    ],
+    commonDiseases: [
+      { name: "Diabetes Melitus", desc: "Gangguan pengaturan gula darah akibat kurangnya produksi atau efektivitas insulin." },
+      { name: "Pankreatitis", desc: "Peradangan pada pankreas yang bisa bersifat akut maupun kronis." },
+      { name: "Kanker Pankreas", desc: "Pertumbuhan tumor ganas pada jaringan pankreas." }
+    ],
+    treatments: [
+      "Membatasi konsumsi gula dan karbohidrat sederhana.",
+      "Menjaga berat badan agar tetap dalam rentang sehat.",
+      "Berhenti mengonsumsi minuman beralkohol."
+    ]
+  },
+  {
+    id: 19,
+    name: "Rangka Tubuh",
+    category: "Tubuh",
+    title: "Systema Skeleton",
+    embedUrl: "https://viewer.assemblrworld.com/Embed/-3rPEQryCHrw3WfuPeVv",
+    explanation: "Rangka tubuh adalah rangkaian tulang yang saling berhubungan membentuk struktur pelindung dan penopang tubuh manusia.",
+    structure: "Terdiri dari tulang aksial (tengkorak, tulang belakang) dan apendikular (anggota gerak), serta dilengkapi dengan sendi dan ligamen.",
+    functionList: [
+      "Memberikan bentuk tubuh dan menopang berat badan.",
+      "Melindungi organ vital seperti otak, jantung, dan paru-paru.",
+      "Tempat melekatnya otot rangka untuk pergerakan.",
+      "Tempat pembentukan sel-sel darah (sumsum tulang)."
+    ],
+    commonDiseases: [
+      { name: "Osteoporosis", desc: "Pengeroposan tulang yang membuat tulang menjadi rapuh dan mudah patah." },
+      { name: "Fraktur", desc: "Patah tulang akibat benturan atau tekanan yang melebihi kekuatan tulang." },
+      { name: "Skoliosis", desc: "Kelainan lengkungan tulang belakang yang tampak miring ke samping." }
+    ],
+    treatments: [
+      "Mencukupi asupan Kalsium dan Vitamin D dari makanan atau paparan matahari.",
+      "Melakukan latihan beban untuk memperkuat kepadatan tulang.",
+      "Menjaga postur tubuh yang benar saat duduk, berdiri, maupun mengangkat beban."
+    ]
+  },
+  {
+    id: 20,
+    name: "Alat Reproduksi",
+    category: "Tubuh",
+    title: "Apparatus Reproductivus",
+    embedUrl: "https://viewer.assemblrworld.com/Embed/-rEff4xdZzvrW3blihVP",
+    explanation: "Sistem reproduksi adalah sekumpulan organ yang bekerja sama untuk tujuan perkembangbiakan atau menghasilkan keturunan.",
+    structure: "Meliputi organ kelamin luar dan dalam. Pada pria berpusat pada Testis dan Penis; pada wanita berpusat pada Ovarium dan Uterus (rahim).",
+    functionList: [
+      "Memproduksi sel kelamin (sperma pada pria, sel telur pada wanita).",
+      "Menghasilkan hormon reproduksi untuk perkembangan ciri seksual.",
+      "Tempat perkembangan janin selama masa kehamilan (pada wanita)."
+    ],
+    commonDiseases: [
+      { name: "Infeksi Menular Seksual (IMS)", desc: "Penyakit yang ditularkan melalui hubungan seksual tidak aman." },
+      { name: "Kista Ovarium", desc: "Kantung berisi cairan yang tumbuh di dalam atau di permukaan ovarium." },
+      { name: "Kanker Serviks / Prostat", desc: "Pertumbuhan sel ganas pada leher rahim atau kelenjar prostat." }
+    ],
+    treatments: [
+      "Menjaga kebersihan organ intim setiap hari.",
+      "Melakukan pemeriksaan kesehatan rutin (seperti Pap Smear bagi wanita).",
+      "Edukasi mengenai perilaku seksual yang sehat dan bertanggung jawab."
+    ]
+  }
   
 ];
