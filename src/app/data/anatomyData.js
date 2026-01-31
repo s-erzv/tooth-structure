@@ -229,7 +229,7 @@ export const anatomyData = [
     name: "Anatomi Mulut",
     category: "Mulut/Gigi",
     title: "Rongga Mulut",
-    embedUrl: "https://viewer.assemblrworld.com/Embed/-JAoa2ZbUol4gmPaK7wA",
+    embedUrl: "https://viewer.assemblrworld.com/Embed/-kdbLsbYGARkbVXdZAV7",
     explanation:
       "Mulut merupakan salah satu organ dari sistem pencernaan. Selain itu, mulut juga menjadi bagian utama dari pernapasan dan komunikasi.",
     structure:
