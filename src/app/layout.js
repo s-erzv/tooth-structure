@@ -13,7 +13,7 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: 'Dental Visualizer',
+  title: 'Anatomy Visualizer',
   description: 'Explore the human mouth in 3D',
 }
 

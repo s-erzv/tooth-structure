@@ -12,7 +12,8 @@ import {
   ChevronDown, 
   Sticker, 
   Brain, 
-  Bone 
+  Bone,
+  Play // Menambah icon Play
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -31,6 +32,7 @@ export default function LandingPage() {
     { id: "Tubuh", label: "Anatomi Tubuh", icon: <Bone size={18} />, href: "/studio?category=Tubuh" },
   ];
 
+  // Helper styles based on theme
   const mainBgClass = theme === 'light' ? 'bg-gradient-to-br from-slate-50 via-white to-blue-50 text-slate-700' : 'bg-slate-900 text-slate-300';
   const headerClass = theme === 'light' ? 'bg-white/80' : 'bg-slate-900/80 border-b border-slate-700';
   const headerTitleClass = theme === 'light' ? 'text-blue-600' : 'text-sky-400';
@@ -48,7 +50,7 @@ export default function LandingPage() {
     <div className={`font-sans transition-colors duration-300 ${mainBgClass}`}>
       <header className={`backdrop-blur-lg shadow-sm sticky top-0 z-50 transition-colors duration-300 ${headerClass}`}>
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className={`text-3xl font-bold transition-colors duration-300 ${headerTitleClass}`}>Dental Edu</Link>
+          <Link href="/" className={`text-3xl font-bold transition-colors duration-300 ${headerTitleClass}`}>Anatomy Edu</Link>
           
           <div className="hidden md:flex items-center gap-8">
             <Link href="/quiz" className={`font-semibold transition-colors ${navLinkClass}`}>
@@ -120,6 +122,7 @@ export default function LandingPage() {
       </header>
 
       <main>
+        {/* Section 1: Hero */}
         <section className={`text-center py-20 md:py-32 px-6 transition-colors duration-300 ${heroBgClass}`}>
           <div className="container mx-auto">
             <h2 className={`text-4xl md:text-6xl font-extrabold mb-6 leading-tight transition-colors duration-300 ${headingClass}`}>
@@ -144,6 +147,35 @@ export default function LandingPage() {
                   <span className="font-bold text-sm uppercase tracking-wide">{cat.label}</span>
                 </Link>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={`py-12 md:py-20 px-6 ${theme === 'light' ? 'bg-slate-50' : 'bg-slate-900'}`}>
+          <div className="container mx-auto">
+            <div className="max-w-5xl mx-auto">
+              <div className={`relative rounded-3xl overflow-hidden shadow-2xl border-4 ${theme === 'light' ? 'border-white' : 'border-slate-800'}`}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none z-10" />
+                
+                <div className="aspect-video w-full bg-black flex items-center justify-center">
+                  <video 
+                    className="w-full h-full object-cover"
+                    controls 
+                    preload="metadata"
+                    poster="/thumbnail-video.jpg" 
+                  >
+                    <source src="/anatomy-edu.mp4" type="video/mp4" />
+                    Browser kamu tidak mendukung tag video.
+                  </video>
+                </div>
+
+                {/* <div className="absolute top-6 left-6 z-20 flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">
+                  <Play size={14} fill="white" /> Preview Studio
+                </div> */}
+              </div>
+              
+              <div className="mt-8 text-center">
+              </div>
             </div>
           </div>
         </section>
@@ -201,11 +233,11 @@ export default function LandingPage() {
       <footer className={`py-12 transition-colors duration-300 ${footerClass}`}>
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-left">
-            <h4 className={`text-xl font-bold ${headerTitleClass}`}>Dental Edu</h4>
+            <h4 className={`text-xl font-bold ${headerTitleClass}`}>Anatomy Edu</h4>
             <p className="text-xs mt-1 opacity-50 italic">Pusat Belajar Anatomi Digital & Interaktif</p>
           </div>
           <p className={`text-sm ${theme === 'light' ? 'text-slate-500' : 'text-slate-400'}`}>
-            &copy; {new Date().getFullYear()} Dental Edu. Dibuat untuk Pendidikan.
+            &copy; {new Date().getFullYear()} Anatomy Edu. Dibuat untuk Pendidikan.
           </p>
         </div>
       </footer>

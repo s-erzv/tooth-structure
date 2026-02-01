@@ -186,7 +186,7 @@ export const anatomyData = [
     explanation:
       "Jaringan periodontal lunak berwarna merah muda yang ada di sekeliling gigi dan tidak terlihat di hasil rontgen.",
     structure:
-      "Jaringan lunak yang terdiri dari gingiva marginal, gingiva melekat (attached), papila interdental, epitel gingiva, dan jaringan ikat pendukung (lamina propria).",
+      "Jaringan lunak yang terdiri dari gingiva marginal, gingiva melekat (attached), papila interAnatomy, epitel gingiva, dan jaringan ikat pendukung (lamina propria).",
     functionList: [
       "Menjaga gigi tetap pada posisinya.",
       "Sebagai pelindung utama akar gigi dan tulang rahang.",
