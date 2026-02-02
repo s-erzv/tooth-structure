@@ -13,7 +13,8 @@ import {
   Sticker, 
   Brain, 
   Bone,
-  Play // Menambah icon Play
+  Play,
+  ArrowRight, Youtube
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -32,7 +33,37 @@ export default function LandingPage() {
     { id: "Tubuh", label: "Anatomi Tubuh", icon: <Bone size={18} />, href: "/studio?category=Tubuh" },
   ];
 
-  // Helper styles based on theme
+  const previewVideos = [
+    { 
+      id: 1, 
+      title: "Sistem Pencernaan: Perjalanan Makanan", 
+      duration: "01:44", 
+      path: "https://res.cloudinary.com/dxnmgxfaf/video/upload/v1770018186/1_dfrjxe.mp4",
+      description: "Proses pencernaan manusia secara berurutan mulai dari mulut, lambung, hingga penyerapan nutrisi di usus halus dan pembuangan sisa makanan."
+    },
+    { 
+      id: 2, 
+      title: "Sistem Pernapasan & Sirkulasi", 
+      duration: "03:45", 
+      path: "https://res.cloudinary.com/dxnmgxfaf/video/upload/v1770020407/freecompress-2_ttnott.mp4",
+      description: "Kolaborasi paru-paru dan jantung dalam mengambil oksigen dan memompa darah ke seluruh tubuh untuk menjaga kelangsungan hidup."
+    },
+    { 
+      id: 3, 
+      title: "Anatomi Gigi & Sistem Peringatan Nelly", 
+      duration: "01:46", 
+      path: "https://res.cloudinary.com/dxnmgxfaf/video/upload/v1770018750/3_y0qhyn.mp4",
+      description: "Membedah struktur email, dentin, dan pulpa gigi, serta peran sel saraf Nelly sebagai sistem peringatan rasa sakit di dalam gigi."
+    },
+    { 
+      id: 4, 
+      title: "Sistem Saraf Pusat: Pusat Kendali", 
+      duration: "02:01", 
+      path: "https://res.cloudinary.com/dxnmgxfaf/video/upload/v1770018205/4_ccepqg.mp4",
+      description: "Menjelaskan peran otak (serebrum, serebelum, batang otak) sebagai pengatur pikiran dan gerakan melalui sumsum tulang belakang."
+    }
+  ];
+
   const mainBgClass = theme === 'light' ? 'bg-gradient-to-br from-slate-50 via-white to-blue-50 text-slate-700' : 'bg-slate-900 text-slate-300';
   const headerClass = theme === 'light' ? 'bg-white/80' : 'bg-slate-900/80 border-b border-slate-700';
   const headerTitleClass = theme === 'light' ? 'text-blue-600' : 'text-sky-400';
@@ -122,7 +153,6 @@ export default function LandingPage() {
       </header>
 
       <main>
-        {/* Section 1: Hero */}
         <section className={`text-center py-20 md:py-32 px-6 transition-colors duration-300 ${heroBgClass}`}>
           <div className="container mx-auto">
             <h2 className={`text-4xl md:text-6xl font-extrabold mb-6 leading-tight transition-colors duration-300 ${headingClass}`}>
@@ -151,42 +181,14 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className={`py-12 md:py-20 px-6 ${theme === 'light' ? 'bg-slate-50' : 'bg-slate-900'}`}>
-          <div className="container mx-auto">
-            <div className="max-w-5xl mx-auto">
-              <div className={`relative rounded-3xl overflow-hidden shadow-2xl border-4 ${theme === 'light' ? 'border-white' : 'border-slate-800'}`}>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none z-10" />
-                
-                <div className="aspect-video w-full bg-black flex items-center justify-center">
-                  <video 
-                    className="w-full h-full object-cover"
-                    controls 
-                    preload="metadata"
-                    poster="/thumbnail-video.jpg" 
-                  >
-                    <source src="/anatomy-edu.mp4" type="video/mp4" />
-                    Browser kamu tidak mendukung tag video.
-                  </video>
-                </div>
-
-                {/* <div className="absolute top-6 left-6 z-20 flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">
-                  <Play size={14} fill="white" /> Preview Studio
-                </div> */}
-              </div>
-              
-              <div className="mt-8 text-center">
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className={`py-20 md:py-24 px-6 transition-colors duration-300 ${featureSectionBg}`}>
           <div className="container mx-auto">
             <div className="text-center mb-16">
               <h3 className={`text-3xl md:text-4xl font-bold mb-4 transition-colors duration-300 ${headingClass}`}>Fitur Unggulan</h3>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+              
               <div className={`p-8 rounded-3xl transition-all duration-300 ${featureCardClass}`}>
                 <div className={`rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-6 transition-colors duration-300 ${featureIconClass}`}>
                   <Orbit size={32} />
@@ -209,6 +211,17 @@ export default function LandingPage() {
 
               <div className={`p-8 rounded-3xl transition-all duration-300 ${featureCardClass}`}>
                 <div className={`rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-6 transition-colors duration-300 ${featureIconClass}`}>
+                  <Youtube size={32} /> {/* Pastikan sudah import { Youtube } from 'lucide-react' */}
+                </div>
+                <h4 className={`text-xl font-bold mb-3 ${headingClass}`}>Video Belajar</h4>
+                <p className={`text-sm leading-relaxed ${subHeadingClass}`}>
+                  Simulasi visual materi anatomi melalui video berkualitas tinggi untuk pemahaman yang lebih nyata.
+                </p>
+              </div>
+
+              {/* Evaluasi Kuis */}
+              <div className={`p-8 rounded-3xl transition-all duration-300 ${featureCardClass}`}>
+                <div className={`rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-6 transition-colors duration-300 ${featureIconClass}`}>
                   <ClipboardCheck size={32} />
                 </div>
                 <h4 className={`text-xl font-bold mb-3 ${headingClass}`}>Evaluasi Kuis</h4>
@@ -216,6 +229,37 @@ export default function LandingPage() {
                   Uji pemahamanmu setelah belajar dengan paket soal yang dirancang sesuai standar kompetensi pendidikan.
                 </p>
               </div>
+
+            </div>
+          </div>
+        </section>
+
+        <section className={`py-20 px-6 ${theme === 'light' ? 'bg-slate-100/50' : 'bg-slate-800/20'}`}>
+          <div className="container mx-auto">
+            <div className="flex justify-between flex-wrap items-end mb-12">
+              <div>
+                <h3 className={`text-3xl font-bold mb-2 ${headingClass}`}>Materi Visual</h3>
+                <p className={subHeadingClass}>Lihat simulasi anatomi dalam video berkualitas tinggi.</p>
+              </div>
+              <Link href="/learning" className="flex items-center gap-2 text-blue-600 font-bold hover:underline">
+                Lihat Semua Video <ArrowRight size={18} />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {previewVideos.map((vid) => (
+                <div key={vid.id} className={`rounded-2xl overflow-hidden shadow-md group ${featureCardClass}`}>
+                  <div className="aspect-video bg-black relative">
+                    <video className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition" muted loop onMouseEnter={e => e.target.play()} onMouseLeave={e => {e.target.pause(); e.target.currentTime = 0;}}>
+                      <source src={vid.path} type="video/mp4" />
+                    </video>
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <Play size={24} className="text-white opacity-80" fill="white" />
+                    </div>
+                  </div>
+                  <div className="p-4 font-bold text-sm">{vid.title}</div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -237,7 +281,7 @@ export default function LandingPage() {
             <p className="text-xs mt-1 opacity-50 italic">Pusat Belajar Anatomi Digital & Interaktif</p>
           </div>
           <p className={`text-sm ${theme === 'light' ? 'text-slate-500' : 'text-slate-400'}`}>
-            &copy; {new Date().getFullYear()} Anatomy Edu. Dibuat untuk Pendidikan.
+            &copy; {new Date().getFullYear()} Anatomy Edu. 
           </p>
         </div>
       </footer>
