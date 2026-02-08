@@ -40,6 +40,7 @@ function StudioContent() {
   const [selectedId, setSelectedId] = useState(null);
   const [tab, setTab] = useState("penjelasan");
   const [theme, setTheme] = useState("light");
+  
   const [sheetHeight, setSheetHeight] = useState("min");
 
   useEffect(() => {
@@ -60,7 +61,7 @@ function StudioContent() {
   const handleSelect = (id) => {
     setSelectedId(id);
     setTab("penjelasan");
-    setSheetHeight("half");
+    setSheetHeight("min");
   };
 
   const isDark = theme === "dark";
@@ -69,7 +70,7 @@ function StudioContent() {
   const txtMain = isDark ? "text-slate-200" : "text-slate-800";
 
   const getSheetHeightClass = () => {
-    if (sheetHeight === "min") return "h-[120px]";
+    if (sheetHeight === "min") return "h-[110px]";
     if (sheetHeight === "half") return "h-[45vh]";
     return "h-[85vh]";
   };
@@ -181,13 +182,14 @@ function StudioContent() {
               rounded-t-[32px] md:rounded-t-none
             `}
           >
+            {/* Handle untuk drag/klik naik turun di mobile */}
             <div 
               className="md:hidden flex flex-col items-center pt-3 pb-2 cursor-pointer touch-none"
-              onClick={() => setSheetHeight(sheetHeight === "full" ? "half" : sheetHeight === "half" ? "full" : "half")}
+              onClick={() => setSheetHeight(sheetHeight === "full" ? "min" : sheetHeight === "half" ? "full" : "half")}
             >
               <div className={`w-12 h-1.5 rounded-full ${isDark ? 'bg-slate-700' : 'bg-slate-300'} mb-2`} />
               <div className="text-[10px] font-bold opacity-30 uppercase tracking-widest">
-                {sheetHeight === "full" ? "Tutup" : "Lihat Detail"}
+                {sheetHeight === "full" ? "Tarik ke Bawah" : "Lihat Detail"}
               </div>
             </div>
 
